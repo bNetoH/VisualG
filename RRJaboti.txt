@@ -1,0 +1,281 @@
+algoritmo "RRJaboti"
+// Função : inspirado no jogo da forca e caça-palavras, temos na televisão o programa "Roda a Roda Jequiti" dai o nosso Roda a Roda Jaboti
+// Autor : Homero B Neto - ADS 1º Sem - 2019 - Trabalho de Encerramento do Semestre - prof. Ronnie
+// Data : 02/10/2019
+//--------------------------Procedimento: Cria segredo
+procedimento hidden()
+inicio
+      revelacao[0] <- " _"
+      revelacao[1] <- " _"
+      revelacao[2] <- " _"
+      revelacao[3] <- " _"
+      revelacao[4] <- " _"
+      revelacao[5] <- " _"
+      revelacao[6] <- " _"
+      
+   se secr = 1 entao
+      segredo[0] <- "C"
+      segredo[1] <- "A"
+      segredo[2] <- "I"
+      segredo[3] <- "X"
+      segredo[4] <- "E"
+      segredo[5] <- "T"
+      segredo[6] <- "A"
+      dica <- " o diminutivo de caixa "
+      escreval(" =====>",dica)
+   fimse
+   se secr = 2 entao
+      segredo[0] <- "A"
+      segredo[1] <- "X"
+      segredo[2] <- "I"
+      segredo[3] <- "O"
+      segredo[4] <- "M"
+      segredo[5] <- "A"
+      segredo[6] <- "S"
+      dica <- " nada pode ser e não ser simultaneamente "
+      escreval(" =====>",dica)
+   fimse
+   se secr = 3 entao
+      segredo[0] <- "A"
+      segredo[1] <- "M"
+      segredo[2] <- "P"
+      segredo[3] <- "L"
+      segredo[4] <- "E"
+      segredo[5] <- "X"
+      segredo[6] <- "O"
+      dica <- " sinônimo da palavra abraço "
+      escreval(" =====>",dica)
+   fimse
+   se secr = 4 entao
+      segredo[0] <- "A"
+      segredo[1] <- "R"
+      segredo[2] <- "C"
+      segredo[3] <- "A"
+      segredo[4] <- "B"
+      segredo[5] <- "U"
+      segredo[6] <- "Z"
+      dica <- " arma de fogo antiga, criada no século XV "
+      escreval(" =====>",dica)
+   fimse
+   se secr = 5 entao
+      segredo[0] <- "C"
+      segredo[1] <- "I"
+      segredo[2] <- "E"
+      segredo[3] <- "N"
+      segredo[4] <- "C"
+      segredo[5] <- "I"
+      segredo[6] <- "A"
+      dica <- " conhecimento atento e aprofundado de algo "
+      escreval(" =====>",dica)
+   fimse
+fimprocedimento
+
+//--------------------------Procedimento: Topo da tela
+procedimento topotela()
+
+var traco, esp: caracter
+        a: inteiro
+inicio
+   limpatela
+   escreval("")
+   traco <- "="
+   esp <- " "
+   para a de 1 ate 18 faca
+      escreva(traco)
+   fimpara
+   a <- 0
+   escreva(">  B E M   V I N D O S   A O   J O G O  <")
+   para a de 1 ate 18 faca
+      escreva(traco)
+   fimpara
+   escreval("")
+   escreval("")
+   a <- 0
+   para a de 1 ate 28 faca
+      escreva(esp)
+   fimpara
+   escreval("RODA A RODA - JABOTI")
+   a <- 0
+   para a de 1 ate 77 faca
+      escreva(traco)
+   fimpara
+   escreval("")
+   escreva("Jogador: ",(player[0]))
+   a <- 0
+   para a de 1 ate 38 faca
+      escreva(esp)
+   fimpara
+   escreval("Jogador: ",(player[1]))
+
+   escreva("Pontos : ",(pontos[0]):6)
+   a <- 0
+   para a de 1 ate 38 faca
+      escreva(esp)
+   fimpara
+   escreval("Pontos : ",(pontos[1]):6)
+fimprocedimento
+
+//--------------------------Procedimento: Tela de encerramento
+procedimento telaencerramento()
+
+inicio
+   limpatela
+   escreval(" ")
+   escreval(" ")
+   escreval(" ")
+   escreval(" ")
+   traco <- "="
+   para a de 1 ate 22 faca
+      escreva(traco)
+   fimpara
+   a <- 0
+   escreva(">    F I M    D E    J O G O    <")
+   para a de 1 ate 22 faca
+      escreva(traco)
+   fimpara
+   escreval(" ")
+   escreval(" ")
+   a <- 0
+   para a de 1 ate 77 faca
+      escreva(traco)
+   fimpara
+   escreval(" ")
+   escreval(" ")
+   escreval(" ")
+   escreval(" ")
+   escreva("Parabens ")
+   se pontos[0] > pontos[1] entao
+      escreval(player[0]," você venceu ",player[1],"!")
+      escreva("E o placar foi de ")
+      escreval(pontos[0]:3," X ",pontos[1]:3)
+   senao
+      escreval(player[1]," você venceu ",player[0],"!")
+      escreva("E o placar foi de ")
+      escreval(pontos[1]:3," X ",pontos[0]:3)
+   fimse
+
+   escreval(" ")
+   escreval(" ")
+   I <- 0
+   escreva("A palavra descoberta foi ")
+   para I de 0 ate 6 faca
+      escreva(" ",revelacao[I])
+   fimpara
+   escreval(" ")
+   escreval("> e a dica para essa palavra foi: ",dica)
+   escreval(" ")
+   para a de 1 ate 77 faca
+      escreva(traco)
+   fimpara
+   escreval(" ")
+fimprocedimento
+
+//--------------------------Seção das Declarações
+var
+   player: vetor[0..1] de caracter
+   pontos: vetor[0..1] de inteiro
+   segredo: vetor[0..6] de caracter
+   revelacao: vetor[0..6] de caracter
+   acerto, vez, I: inteiro
+   dica, palpite: caracter
+   secr: inteiro
+
+   
+   traco, esp: caracter // Variaveis dos procedimentos para desenhar linhas e colocar espaços na tela
+   a: inteiro // contador comando para dos procedimentos
+//--------------------------Seção de Comandos
+inicio
+   timer(0)
+   escreva(" > Entre com o nome do jogador 1: ")
+   leia(player[0])
+   escreva(" > Entre com o nome do jogador 2: ")
+   leia(player[1])
+   escreval(" ")
+   escreval(" ")
+   escreval(" > Tire no par ou impar, qual jogador sai jogando")
+   escreva(" > escolha um número, de 1 a 5, para obter a pista e iniciar o jogo: ")
+   leia(secr)
+   escreval(" ")
+   escreval(" ")
+   escreval("   * * *  atenção jogadores a pista é  * * * ")
+   escreval(" ")
+   hidden()
+   escreval(" ")
+   escreva(" > Então, quem ganhou no par ou impar? o 1 ou o 2? ")
+   
+   leia(vez)
+   se vez = 1 entao
+      vez <- 0
+   senao
+      se vez = 2 entao
+         vez <- 1
+      fimse
+   fimse
+
+   enquanto (player[vez]) = vez faca
+      topotela()
+      acerto <- 0
+      escreval(" ")
+      I <- 0
+      escreva("A palavra é: ")
+      para I de 0 ate 6 faca
+         escreva(" ",revelacao[I])
+      fimpara
+
+      escreval(" ")
+      escreval("------------------------------------")
+      escreval(" > Jogando: ",(player[vez]))
+      escreval("------------------------------------")
+      escreval(" ")
+      escreval(" > A palavra secreta tem 7 letras")
+      escreval(" ")
+      escreva(" > Entre com uma letra: ")
+      leia(palpite)
+
+      para I de 0 ate 6 faca
+         se palpite = revelacao[I] entao
+            acerto <- acerto + 1
+         fimse
+      fimpara
+
+      se acerto > 0 entao
+         se vez = 1 entao
+            vez <- 0
+         senao
+            se vez = 0 entao
+               vez <- 1
+            fimse
+         fimse
+         escreva("Ops! A letra ",palpite," já foi descoberta, perdeu a vez ")
+         timer(3000)
+         timer(0)
+      senao
+         I <- 0
+         para I de 0 ate 6 faca
+            se palpite = segredo[I] entao
+               pontos[vez] <- pontos[vez] + 10
+               acerto <- acerto + 1
+               revelacao[I] <- palpite
+            fimse
+         fimpara
+
+         se (pontos[0]+pontos[1]) >= 70 entao // finaliza o jogo quando o placar chegar a 70.
+            telaencerramento()
+            fimalgoritmo
+         fimse
+
+         se acerto = 0 entao
+            escreva("Ops! Não tem a letra ",palpite," na palavra secreta, perdeu a vez ")
+            timer(3000)
+            timer(0)
+            se vez = 1 entao
+               vez <- 0
+            senao
+               se vez = 0 entao
+                  vez <- 1
+               fimse
+            fimse
+         fimse
+      fimse
+   fimenquanto
+fimalgoritmo

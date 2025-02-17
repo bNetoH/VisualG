@@ -2,6 +2,12 @@
 
 Este repositório contém dois projetos desenvolvidos em VisualG para o curso de Análise e Desenvolvimento de Sistemas (ADS) na Fatec Araçatuba.
 
+## O que é o VisaulG
+
+- Ele um ambiente de programação simples e educativo, muito utilizado no Brasil para ensinar lógica de programação e algoritmos. Com ele, é possível escrever códigos em pseudocódigo, o que facilita a compreensão dos conceitos fundamentais da programação.
+
+VisualG2.5: https://dicasdeprogramacao.com.br/download/visualg-2-5.zip
+
 ## Jogo da Forca
 
 ![print screen](logo_for_VisualG_Jogo_da_Forca_project.png "logo_for_VisualG_Jogo_da_Forca_project.png")
